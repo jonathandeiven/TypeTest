@@ -1,12 +1,12 @@
 //Prevent pasting into user text box
 $('textarea').bind('paste', function (e) {
-    e.preventDefault();
+  e.preventDefault();
 });
 
 //Keep highlighted text responsive
 $(window).on('resize', function(){
-      $(".highlightTextarea").css('width','100%');
-      $(".highlightTextarea-container").css('width','99%');
+    $(".highlightTextarea").css('width','100%');
+    $(".highlightTextarea-container").css('width','99%');
 });
 
 var text = "Invasive species are alien organisms that are very aggressive with native species ";
@@ -20,53 +20,57 @@ var score = 0;
 var highlightCount = 0;
 
 function typeTest(){
-	console.log("test");
-	var count = 0;
+  console.log("test");
+  var count = 0;
 
-	function updateUsertext(){
-		usertext = $('textarea#usertext').val();
-		var usertextLatestArr = usertext.split(" ");
-		usertextArr.push(usertextLatestArr[usertextLatestArr.length-1]);
-		count = usertextArr.length - 1;
+  function updateUsertext(){
+    usertext = $('textarea#usertext').val();
+    var usertextLatestArr = usertext.split(" ");
+    usertextArr.push(usertextLatestArr[usertextLatestArr.length-1]);
+    count = usertextArr.length - 1;
+    var wordLen = textArr[count].length;
 
-		if(textArr[count] === usertextArr[count]){
-			if (mistakes[mistakes.length-1] === count){ mistakes.pop() }
-			var wordLen = textArr[count].length;
 
-			$('#storytext').highlightTextarea({ ranges: [{ color: '#c1f5b0', start: highlightCount, length: wordLen}] });
+    if(textArr[count] === usertextArr[count]){
+      if (mistakes[mistakes.length-1] === count){ mistakes.pop() }
 
-			console.log("Highlight count is " + highlightCount);
-			score++;
+      $('#storytext').highlightTextarea({ ranges: [{ color: '#c1f5b0', start: highlightCount, length: wordLen}] });
 
-			highlightCount += (textArr[count].length + 1);
-		}
+      console.log("Highlight count is " + highlightCount);
+      score++;
 
-		//missed one word
-		//any more than a single consecutive missed word counts as an error
-		else if(textArr[count+1] === usertextArr[count]){
-			usertextArr.splice(count, 0, "blank");
-			if (mistakes[mistakes.length-1] === count){ mistakes.pop() }
-			score++;
-			mistakes.push(count);
-		}
+      highlightCount += (textArr[count].length + 1);
+    }
 
-		else{
-			mistakes.push(count);
-		}
-	};
+    //missed one word
+    //any more than a single consecutive missed word counts as an error
+    else if(textArr[count+1] === usertextArr[count]){
+      usertextArr.splice(count, 0, "blank");
+      if (mistakes[mistakes.length-1] === count){ mistakes.pop() }
+      score++;
+      mistakes.push(count);
+    }
 
-	//User presses backspace
-	$('#usertext').on('keydown', function(e) {
-		if(e.keyCode == 8){
-    		usertextArr.pop();
-    		mistakes.pop();
-    	}
-	});
+    else{
+      $('#storytext').highlightTextarea({ ranges: [{ color: '#febbb9', start: highlightCount, length: wordLen}] });
+      highlightCount += (textArr[count].length + 1);
+      mistakes.push(count);
+    }
+  };
 
-	$('#usertext').on('keydown', function(e) {
-		if(e.keyCode == 32){
-    		updateUsertext();
-    	}
-	});	
+  //User presses backspace
+  $('#usertext').on('keydown', function(e) {
+    if(e.keyCode == 8){
+      usertextArr.pop();
+      mistakes.pop();
+    }
+  });
+
+  $('#usertext').on('keydown', function(e) {
+    if(e.keyCode == 32){
+      updateUsertext();
+    }
+  }); 
+  
 }
 

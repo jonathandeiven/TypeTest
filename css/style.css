@@ -3,35 +3,35 @@ body, html {
 }
 
 .gitbtn{
-	padding-top: 20px;
-	padding-right: 20px;
+    padding-top: 20px;
+    padding-right: 20px;
 }
 
 .title{
-	font-size: 50px;
-	text-align: center;
+    font-size: 50px;
+    text-align: center;
 }
 
 .instructions{
-	padding-top: 10px;
-	font-size: 16px;
-	text-align: center;
-	margin-left: 25px;
-	margin-right: 25px;
+    padding-top: 10px;
+    font-size: 16px;
+    text-align: center;
+    margin-left: 25px;
+    margin-right: 25px;
 }
 
 .typebox{
-	width: 70%;
-	margin-top: 30px;
-	margin-left: auto;
+    width: 70%;
+    margin-top: 30px;
+    margin-left: auto;
     margin-right: auto;
     border-radius: 5px;
     background-color: #fff;
 }
 
 .startbtn{
-	padding-top: 20px;
-	text-align: center;
+    padding-top: 20px;
+    text-align: center;
 }
 
 textarea {
@@ -39,65 +39,65 @@ textarea {
 }
 
 .timer{
-	text-align: center;
-	padding-top: 25px;
+    text-align: center;
+    padding-top: 25px;
 }
 
 .timerTime{
-	font-weight: bold;
+    font-weight: bold;
 }
 
 .question{
-	font-size: 15px;
-	font-weight: bold;
-	padding-top: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    padding-top: 12px;
 }
 
 .answers, .mistakes{
-	font-size: 14px;
-	margin-left: auto;
-	margin-right: auto;
+    font-size: 14px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .answers{
-	max-width: 450px;
+    max-width: 450px;
 }
 
 .mistakes{
-	max-width: 600px;
+    max-width: 600px;
 }
 
 #resultsContainer{
-	padding-top: 35px;
-	text-align: center;
-	margin-left: 25px;
-	margin-right: 25px;
-	display: none;
+    padding-top: 35px;
+    text-align: center;
+    margin-left: 25px;
+    margin-right: 25px;
+    display: none;
 }
 
 #mistakesContainer{
-	text-align: center;
-	padding-bottom: 8px;
-	max-width: 600px;
-	margin: 0 auto;
-	display: none;
+    text-align: center;
+    padding-bottom: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+    display: none;
 }
 
 .results{
-	font-size: 30px;
-	padding-bottom: 15px;
+    font-size: 30px;
+    padding-bottom: 15px;
 }
 
 .resultsWPM{
-	font-weight: bold;
-	color: #2481e1;
+    font-weight: bold;
+    color: #2481e1;
 }
 
 .mistakesTitle{
-	font-weight: bold;
-	text-align: center;
+    font-weight: bold;
+    text-align: center;
 }
 
 #storytext, #usertext{
-	background-color:#fff;
+    background-color:#fff;
 }
