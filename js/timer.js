@@ -43,7 +43,7 @@ function timer(duration, elementId, scoreID, mistakesID){
 
 var timerStarted = false;
 $('#usertext').on('keydown', function() {
-  var time = 60 * 0.1,
+  var time = 60 * 1,
   display = document.querySelector('#time');
   scoreDisplay = document.querySelector('#score');
   mistakesDisplay = document.querySelector('#mistakes');
