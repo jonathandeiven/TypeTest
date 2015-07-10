@@ -15,19 +15,7 @@ var highlightIndex = 0;
 //Prevent pasting into user text box
 $('textarea').bind("cut paste", function (e) {
   e.preventDefault();
-});
-
-
-$(function(){   
-    $(document).keydown(function(objEvent) {        
-        if (objEvent.ctrlKey) {          
-            if (objEvent.keyCode == 65) {                         
-                objEvent.disableTextSelect();
-                return false;
-            }            
-        }        
-    });
-});   
+}); 
 
 //Keep highlighted text responsive
 $(window).on('resize', function(){
