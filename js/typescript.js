@@ -13,9 +13,21 @@ var count = 0;
 var highlightIndex = 0;
 
 //Prevent pasting into user text box
-$('textarea').bind('paste', function (e) {
+$('textarea').bind("cut paste", function (e) {
   e.preventDefault();
 });
+
+
+$(function(){   
+    $(document).keydown(function(objEvent) {        
+        if (objEvent.ctrlKey) {          
+            if (objEvent.keyCode == 65) {                         
+                objEvent.disableTextSelect();
+                return false;
+            }            
+        }        
+    });
+});   
 
 //Keep highlighted text responsive
 $(window).on('resize', function(){
@@ -99,7 +111,8 @@ function typeTest(){
   //User presses backspace
   $('#usertext').on('keydown', function(e) {
     var lastChar = $('textarea#usertext').val().slice(-1);
-    if(e.keyCode == 8 && lastChar === " "){
+    var secondLastChar = $('textarea#usertext').val().slice(-2).substring(0, 1);;
+    if(e.keyCode == 8 && lastChar === " " && secondLastChar !== " "){
       usertextArr.pop();
       mistakes.pop();
       highlightArgs.pop();
@@ -110,7 +123,9 @@ function typeTest(){
   });
 
   $('#usertext').on('keydown', function(e) {
-    if(e.keyCode == 32){
+    var lastChar = $('textarea#usertext').val().slice(-1);
+    var spaceTest = lastChar === " " ? true : false;
+    if(e.keyCode == 32 && spaceTest == false){
       updateUsertext();
     }
   }); 
