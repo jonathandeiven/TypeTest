@@ -3,6 +3,7 @@
 function timer(duration, elementId, scoreID, mistakesID){
   var start = Date.now();
   var min, sec, diff;
+  var scoreComputed = false;
 
   function timerCompute(){
     diff = duration - (((Date.now() - start) / 1000) | 0);
@@ -18,6 +19,13 @@ function timer(duration, elementId, scoreID, mistakesID){
 
     if ( diff <= 0 ){
       elementId.textContent = "0:00";
+      
+      if (!scoreComputed){
+        score /= (duration / 60);
+        score = Math.round(score);
+        scoreComputed = true;
+      }
+      
       scoreID.textContent = score;
       document.getElementById("usertext").readOnly = true;
             
@@ -43,7 +51,7 @@ function timer(duration, elementId, scoreID, mistakesID){
 
 var timerStarted = false;
 $('#usertext').on('keydown', function() {
-  var time = 60 * 1,
+  var time = 60 * 2,
   display = document.querySelector('#time');
   scoreDisplay = document.querySelector('#score');
   mistakesDisplay = document.querySelector('#mistakes');
